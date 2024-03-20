@@ -9,7 +9,15 @@ pipeline {
                   }
               }
           }
-    }
+    stage('Read JSON File') {
+            steps {
+                script {
+                    def jsonData = readJSON file: 'data.json'
+                    echo "Value of key1: ${jsonData.url}"
+                  }
+              }
+          }
+      }
 }
     
     
